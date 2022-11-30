@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objs as go
 
 
-df = pd.read_parquet('data.parquet.gzip')
+df = pd.read_csv('data.parquet.gzip')
 list_metabolites = df.Metabolite.unique()
 
 app = Dash(__name__, )
