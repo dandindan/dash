@@ -27,7 +27,7 @@ df = set_dtypes(df)  # set datatypes
 list_metabolites = df.Metabolite.unique()
 
 app = Dash(__name__, )
-server - app.server
+server = app.server
 
 app.title = 'Metabolite'
 app.layout = html.Div([
