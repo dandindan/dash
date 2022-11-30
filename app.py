@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objs as go
 
 
-df = pd.read_csv('all metabolites 10.11.22.csv')
+df = pd.read_csv('https://github.com/dandindan/dash/blob/main/30_11_22.csv')
 
 
 def set_dtypes(df):
