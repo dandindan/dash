@@ -47203,7 +47203,6 @@
 46.0,152,Lysine,150.00,1.8.22,1,1.55646
 46.0,152,Lysine,200.00,1.8.22,1,1.56022
 46.0,152,Lysine,250.00,1.8.22,1,1.51352
-Time,Strain,Metabolite,Concentration,Date,Number,OD 600
 0.0,WT,Methionine,0.00,25.7.22,1,0.01385
 0.0,WT,Methionine,10.00,25.7.22,1,0.00872
 0.0,WT,Methionine,20.00,25.7.22,1,0.00402
