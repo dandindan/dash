@@ -1,11 +1,10 @@
 from dash import Dash, dcc, html, Input, Output
-import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 import plotly.graph_objs as go
 
 
-df = pd.read_csv('data.parquet.gzip')
+df = pd.read_csv('all metabolites 10.11.22.csv')
 list_metabolites = df.Metabolite.unique()
 
 app = Dash(__name__, )
