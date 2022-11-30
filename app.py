@@ -161,7 +161,7 @@ def get_reps_value(reps):
 def get_conc_value(metabo, reps):
     if metabo:
         df_met = df.loc[(df["Metabolite"] == metabo) & (df['Number'] == reps)]
-        df_met_conc = df_met['Concentration'].unique()[0:2]
+        df_met_conc = df_met['Concentration'].unique()[0:]
         global df_met_print
         df_met_print = df_met['Concentration'].unique()
         # [{'label': i, 'value': i} for i in df_met['Number'].unique()]
@@ -186,16 +186,16 @@ def update_graph(metabo, reps, select_conc):
                      y="OD600",
                      color="Strain",
                      hover_name="Concentration",
-                     marginal_y='histogram',
+                     # marginal_y='histogram',
                      # marginal_y='violin',
-                     # range_y=[-.1, 1.8],
+                     range_y=[-.1, 1.8],
                      labels={
                          "Time": "Time(h)",
                          "OD600": "Abs(OD600)",
                      },
                      template="plotly_dark",
-                     #  animation_frame="Concentration",
-                     #  animation_group="OD600"
+                     animation_frame="Concentration",
+                     animation_group="OD600"
                      )
     fig.update_layout(
         yaxis=dict(
