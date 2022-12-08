@@ -9,8 +9,26 @@ from scipy.stats import linregress
 from upper import upper_layout
 from explor import explor_layout
 
+df = pd.read_csv('7_12_22.csv')
 
-df = pd.read_parquet('all_matabolites_7_11_22.parquet.gzip')
+
+def set_dtypes(df):
+    df['Time'] = df['Time'].astype('float32')
+    # ###df['Strain'] = df['Strain'].astype('category')
+    df['Strain'] = df['Strain'].astype('str')
+    df['Metabolite'] = df['Metabolite'].astype('category')
+    df['Concentration'] = df['Concentration'].astype('float32')
+    df['Date'] = df['Date'].astype('category')
+    # ####df["Date"] = pd.to_datetime(df["Date"], format='%d%m%y')
+    df['Number'] = df['Number'].astype('int32')
+    # ###df['Number'] = df['Number'].astype('category')
+    df['OD600'] = df['OD600'].astype('float32')
+    return df
+
+
+df = set_dtypes(df)  # set datatypes
+
+
 list_metabolites = df.Metabolite.unique()
 metabo = 'Alanine'
 app = Dash(__name__, )
