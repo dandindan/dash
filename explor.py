@@ -128,4 +128,4 @@ explor_layout = html.Div([
     ], className="row flex-display"),
 
 
-], id="mainContainer", style={"display": "flex", "flex-direction": "column"})
+], id="mainContainer1", style={"display": "flex", "flex-direction": "column"})
