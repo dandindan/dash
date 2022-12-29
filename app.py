@@ -5,11 +5,13 @@ import plotly.express as px
 import pandas as pd
 import plotly.graph_objs as go
 from scipy.stats import linregress
+import time
 
 from upper import upper_layout
 from explor import explor_layout
 
 df = pd.read_csv('7_12_22.csv')
+loading_style = {'position': 'absolute', 'align-self': 'center'}
 
 
 def set_dtypes(df):
@@ -141,16 +143,20 @@ def get_conc_value(metabo, reps):
         df_met_conc = [lower, upper]
 
     return df_met_conc, lower, upper, concetration_string
+
+ #############################################################################################
     # Create scatterplot chart
 
 
-@ app.callback(Output('scatter_chart', 'figure'),
+@ app.callback([Output('scatter_chart', 'figure')],
+               [Output('load_icon', 'parent_style')],
                [Input('metabo', 'value')],
                [Input('reps', 'value')],
                [Input('select_conc', 'value')])
 def update_graph(metabo, reps, select_conc):
     # Data for scatter plot
-
+    new_loading_style = loading_style
+    time.sleep(1)
     plot_data = df.loc[(df["Metabolite"] == metabo) & (
         df['Number'] == reps) & (df['Concentration'] >= min(select_conc)) & (df['Concentration'] <= max(select_conc))]
     fig = px.scatter(plot_data, x="Time",
@@ -195,7 +201,8 @@ def update_graph(metabo, reps, select_conc):
         marker=dict(size=6, line=dict(width=0.1, color='white')),
         selector=dict(mode="markers"))
 
-    return fig
+    return fig, new_loading_style
+
 
 # pie chart#######################################################
 

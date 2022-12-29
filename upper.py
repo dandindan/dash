@@ -7,6 +7,7 @@ import plotly.graph_objs as go
 from scipy.stats import linregress
 
 df = pd.read_csv('7_12_22.csv')
+loading_style = {'position': 'absolute', 'align-self': 'center'}
 
 
 def set_dtypes(df):
@@ -109,10 +110,13 @@ upper_layout = html.Div([
 
 
         html.Div([
+            # dcc.Loading(id='load_icon', children=[
             dcc.Graph(id='scatter_chart_up1',
                       config={'displayModeBar': 'hover'},
-                      style={"height": "100%", "width": "100%", }),
-
+                      style={"height": "100%", "width": "100%", },),
+            #   ], color="#119DFF", type="cube", fullscreen=False,)
+            dcc.Loading(id='load_icon', parent_style=loading_style, color="#119DFF",
+                        type="cube", fullscreen=False,),
         ], className="create_container six columns"),
 
         html.Div([

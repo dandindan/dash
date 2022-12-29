@@ -12,7 +12,9 @@ body {
 h2{
   font-weight: 400; 
 }
-
+/* #load_icon{
+  display: inline;
+} */
 .tabs_width{
 width: 100%;
 padding: 0;
